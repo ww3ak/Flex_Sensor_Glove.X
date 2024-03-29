@@ -28,13 +28,8 @@
 // Fail-Safe Clock Monitor is enabled)
 #pragma config FNOSC = FRCPLL      // Oscillator Select (Fast RC Oscillator with PLL module (FRCPLL))
 
-void pic24_init(void){
-    CLKDIVbits.RCDIV = 0;
-    AD1PCFG = 0xffff;
-}
-
 void setup (void) {
-    pic24_init ();
+    CLKDIVbits.RCDIV = 0;
     initFlex ();
     init7seg ();
     initButton ();
@@ -48,7 +43,7 @@ int main (void) {
 
     while (1) {
         if (click == 1) {
-            myChar = readInt();
+            myChar = ('0' + readInt());
             showChar7seg(myChar);
         } else {
             showChar7seg(myChar);
