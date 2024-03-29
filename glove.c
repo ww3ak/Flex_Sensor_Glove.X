@@ -1,18 +1,35 @@
-void initFlex (void) {
-    // Set RA0 to RA4 as digital
-    AD1PCFGbits.PCFG0 = 1; // Set RA0 as digital
-    AD1PCFGbits.PCFG1 = 1; // Set RA1 as digital
-    AD1PCFGbits.PCFG2 = 1; // Set RA2 as digital
-    AD1PCFGbits.PCFG3 = 1; // Set RA3 as digital
-    AD1PCFGbits.PCFG4 = 1; // Set RA4 as digital
+#include <xc.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-    //Configure RA0 to RA4 as inputs
-    TRISAbits.TRISA0 = 1; // Set RA0 as input
-    TRISAbits.TRISA1 = 1; // Set RA1 as input
-    TRISAbits.TRISA2 = 1; // Set RA2 as input
-    TRISAbits.TRISA3 = 1; // Set RA3 as input
-    TRISAbits.TRISA4 = 1; // Set RA4 as input
+void initFlex (void) {
+   // Configure ADC module
+    AD1PCFG = 0xffff; // Set all pins digital
+    AD1PCFGbits.PCFG0 = 0; // AN0 as analog
+    AD1PCFGbits.PCFG1 = 0; // AN1 as analog
+    AD1PCFGbits.PCFG2 = 0; // AN2 as analog
+    AD1PCFGbits.PCFG3 = 0; // AN3 as analog
+    AD1PCFGbits.PCFG4 = 0; // AN4 as analog
+
+    AD1CON1 = 0;    // set all control to 0.
+    AD1CON1bits.SSRC = 0b010;  //Rollover to conversion
+    AD1CON1bits.ASAM = 1; // auto-sample
+    AD1CON1bits.FORM = 0b00;
+    AD1CON2 = 0;
+    AD1CON2bits.CSCNA = 0; // no scan
+    AD1CON2bits.SMPI = 0b0; // every conversion
+    AD1CON2bits.BUFM = 0;  // two 8-word buffers
+    AD1CON3bits.ADCS = 0b1;
+    AD1CON3bits.ADRC = 0;
+    AD1CON3bits.SAMC = 0b1;
+    AD1CON1bits.ADON = 1; // turn on
+    AD1CHS = 0;
+    AD1CHSbits.CH0NB = 0;
+    AD1CHSbits.CH0SB = 0;
+    AD1CHSbits.CH0NA = 0;
+    AD1CHSbits.CH0SA = 0;
     
+
     //Finger Integers
     int F1 = 0 //thumb
     int F2 = 0 //pointer
