@@ -7,7 +7,25 @@
 
 
 #include "xc.h"
+#include "display.h"
+
+
+
+void setup(void)
+{
+    CLKDIVbits.RCDIV = 0;
+    init7seg();
+
+}
 
 int main(void) {
+    setup ();
+    char key='N';
+    while (1){
+        showChar7seg("1");
+        delay_ms(5);
+        showChar7seg("2");
+        delay_ms(5);
+    }
     return 0;
 }

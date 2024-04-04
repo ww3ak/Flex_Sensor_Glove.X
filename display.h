@@ -11,6 +11,9 @@
 #ifdef	__cplusplus
 extern "C" {
 #endif
+void init7seg (void);
+void showChar7seg(char myChar);
+delay_ms(unsigned int ms);
 
 
 
