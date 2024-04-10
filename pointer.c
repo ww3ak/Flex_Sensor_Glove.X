@@ -1,7 +1,6 @@
 #include "xc.h"
 #include <stdio.h>    // for sprintf
 #include "lcd.h"
-
 #define BUFSIZE 128
 #define NUMSAMPLES 256
 
@@ -24,12 +23,6 @@ int adc_buffer[BUFSIZE];
 int buffindx=0;
 long int avg;
 
-
-//void pic24_init() {
-//    _RCDIV=0; //set internal clock to 16MHz
-//    AD1PCFG=0xFFFF; //set all pins digital
-//}
-
 void initBuffer() {
     for(int i=0; i<BUFSIZE; i++) {
         adc_buffer[i]=0;
@@ -43,6 +36,15 @@ void putVal(int ADCvalue) {
         buffindx=0;
     }
 }
+
+void getAvg() {
+    avg=0;
+    for(int j=0; j<BUFSIZE; j++) {
+        avg += adc_buffer[j];
+    }
+    avg /= BUFSIZE;
+}
+
 
 void getAvg() {
     avg=0;
@@ -83,27 +85,3 @@ void __attribute__((interrupt,auto_psv)) _ADC1Interrupt(void) {
 
 }
 
-int main(void) {
-    pic24_init();
-    lcd_init();
-    adc_init();
-    initBuffer();
-    
-    char adStr[20];
-        while(1) {
-        lcd_setCursor(0,0);
-        getAvg();
-    	sprintf(adStr, "%6.4ld",avg);
-        lcd_printStr(adStr);
-        if (avg >= 790) {
-            lcd_setCursor(0,1);
-            lcd_printStr("Bent  ");
-        }else{
-            lcd_setCursor(0,1);
-            lcd_printStr("Unbent");
-        }
-     
-        delay_ms(100);
-    }
-    return 0;
-}
