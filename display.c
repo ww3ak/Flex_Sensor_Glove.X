@@ -1,3 +1,4 @@
+
 #include "xc.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -195,4 +196,3 @@ void showChar7seg(char myChar) {
             break;
     }
 }
-

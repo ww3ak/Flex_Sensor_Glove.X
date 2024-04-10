@@ -12,8 +12,9 @@
 extern "C" {
 #endif
 
+void initFlex (void);
 
-
+void readInt (void);
 
 #ifdef	__cplusplus
 }
