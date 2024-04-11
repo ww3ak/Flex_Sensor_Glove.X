@@ -1,9 +1,3 @@
-/* 
- * File:   display.h
- * Author: sabri
- *
- * Created on March 19, 2024, 12:54 PM
- */
 
 #ifndef DISPLAY_H
 #define	DISPLAY_H
@@ -13,7 +7,7 @@ extern "C" {
 #endif
 void init7seg (void);
 void showChar7seg(char myChar);
-delay_ms(unsigned int ms);
+void delay_ms(unsigned int ms);
 
 
 
@@ -24,3 +18,26 @@ delay_ms(unsigned int ms);
 
 #endif	/* DISPLAY_H */
 
+//#ifndef DISPLAY_H
+//#define    DISPLAY_H
+//
+//#include <xc.h> // include processor files - each processor file is guarded.
+//
+//#ifdef    cplusplus
+//extern "C" {
+//#endif /* cplusplus */
+//
+//    // Insert declarations
+//
+//    enum DIGIT {
+//        MSB = (0b1 << 11),
+//        LSB = (0b1 << 10)
+//    };
+//    void init7seg(void);
+//    void showChar7seg(char myChar, int myDigit);
+//    void delay(long num);
+//
+//#ifdef    __cplusplus
+//}
+//#endif
+//#endif
