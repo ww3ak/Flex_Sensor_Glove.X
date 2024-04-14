@@ -11,9 +11,9 @@
 #ifdef	__cplusplus
 extern "C" {
 #endif
-void initIndexBuffer();
-void putIndexVal(int ADCvalue);
-long int getIndexAvg();
+void initRingBuffer();
+void putRingVal(int ADCvalue);
+long int getRingAvg();
 
 
 

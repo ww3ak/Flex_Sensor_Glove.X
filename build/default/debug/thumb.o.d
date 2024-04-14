@@ -1,5 +1,3 @@
-build/default/debug/thumb.o: thumb.c lcd.h display.h
+build/default/debug/thumb.o: thumb.c lcd.h
 
 lcd.h:
-
-display.h:

@@ -1,14 +1,14 @@
 #include "xc.h"
-#include <stdio.h>    // for sprintf
-#include "lcd.h"
-#include "display.h"
+#include <stdio.h>
+// for sprintf
 
+#include "lcd.h"
 #include "thumb.h"
 #include "pointer.h"
 #include "middle.h"
 #include "ring.h"
 #include "pinkie.h"
-
+#include "input_read.h"
 
 #define NUMSAMPLES 256
 
@@ -40,8 +40,7 @@ void adc_init() {
    TRISBbits.TRISB10=1; //A10 RING
    TRISBbits.TRISB11=1; //A11 PINKIE
 
-           
-           
+          
            
    AD1PCFGbits.PCFG0=0; //read the input as analog input
    AD1PCFGbits.PCFG1=0; //read the input as analog input
@@ -57,15 +56,29 @@ void adc_init() {
    AD1CON1bits.FORM= 0b00; //data output form, of form unsigned int
                           //unsigned: 0V=0b0000000000, 3.3V=0b1111111111
    AD1CON1bits.ASAM= 1; //begin sampling immediately after last conversion
-   AD1CON2bits.SMPI= 0b0000; //interrupts after each conversion
+   AD1CON2bits.SMPI= 0b0101; //interrupts after THE 5TH SAMPLING
     
-   AD1CON2bits.CSCNA = 1;    // Scan Input Selections for CH0+ during Sample A bit: Scans inputs
 
-    AD1CSSL = 0x0003; // Select AN0 and AN1 for input scan
     AD1CHS = 0x0000; // Initial channel selected to AN0
-    AD1CON1bits.ADON=1; //turn on the ADC
     
-    AD1CON2bits.ALTS = 0;
+    
+    AD1CON1bits.ADON=1; //turn on the ADC
+    AD1CON2bits.ALTS = 0; //ALWAYS USES MUX A
+    AD1CON2bits.CSCNA = 1;    // USES CSSL CHANNELS FOR MUX A
+
+    AD1CHSbits.CH0NA = 0;
+   
+    
+    AD1CSSLbits.CSSL0 = 1;    // scan for A0
+    AD1CSSLbits.CSSL1 = 1;   // scan for A1
+    AD1CSSLbits.CSSL9 = 1;   //scan for A9
+    AD1CSSLbits.CSSL10 = 1;   //scan for A10
+    AD1CSSLbits.CSSL11 = 1;   //scan for A11
+
+
+    
+    //look at 17-8 example 
+
 
    
    _AD1IF=0; //clear interrupt flags
@@ -81,33 +94,75 @@ void __attribute__((interrupt,auto_psv)) _ADC1Interrupt(void) {
     _AD1IF=0; //clear interrupt flags
     int adThumbValue = ADC1BUF0;
     int adPointerValue = ADC1BUF1;
-    int adMiddleValue = ADC1BUF9;
-    int adRingValue = ADC1BUFA;
-    int adPinkieValue = ADC1BUFB;
+    int adMiddleValue = ADC1BUF2;
+    int adRingValue = ADC1BUF3;
+    int adPinkieValue = ADC1BUF4;
 
-    
+    putThumbVal(adThumbValue);
     putPointVal(adPointerValue);
     putMiddleVal(adMiddleValue);
-
+    putRingVal(adRingValue);
+    putPinkieVal(adPinkieValue);
 
 }
 
 int main(void) {
     pic24_init();
     lcd_init();
+   
+    initThumbBuffer();
     initPointBuffer();
     initMiddleBuffer();
+    initRingBuffer();
+    initPinkieBuffer();
+    
     adc_init();
-
+    
     char adStr[20];
         while(1) {
         lcd_setCursor(0,0);
-        long int avgPoint = getPointAvg();
-        long int avgMiddle = getMiddleAvg();
-
+        char myChar = readChar();
+        
+//        long int avgThumb = getThumbAvg();
+//        long int avgPoint = getPointAvg();
+//        long int avgMiddle = getMiddleAvg();
+//        long int avgRing = getRingAvg();
+//        long int avgPinkie = getPinkieAvg();
+    
+//        sprintf(adStr, "6.4ld", myChar);
+        lcd_printChar(myChar);
+//    	sprintf(adStr, "%6.4ld",avgThumb);
+//        lcd_printStr(adStr);
+//        if (avgThumb >= 700) {
+//            lcd_setCursor(0,1);
+//            lcd_printStr("Bent  ");
+//        }else{
+//            lcd_setCursor(0,1);
+//            lcd_printStr("Unbent");
+//        }
 //    	sprintf(adStr, "%6.4ld",avgPoint);
 //        lcd_printStr(adStr);
-//        if (avgPoint >= 790) {
+//        if (avgPoint >= 700) {
+//            lcd_setCursor(0,1);
+//            lcd_printStr("Bent  ");
+//        }else{
+//            lcd_setCursor(0,1);
+//            lcd_printStr("Unbent");
+//        }
+//        
+//        sprintf(adStr, "%6.4ld",avgMiddle);
+//        lcd_printStr(adStr);
+//        if (avgMiddle >= 730) {
+//            lcd_setCursor(0,1);
+//            lcd_printStr("Bent  ");
+//        }else{
+//            lcd_setCursor(0,1);
+//            lcd_printStr("Unbent");
+//        }
+     
+//        sprintf(adStr, "%6.4ld",avgRing);
+//        lcd_printStr(adStr);
+//        if (avgRing >= 730) {
 //            lcd_setCursor(0,1);
 //            lcd_printStr("Bent  ");
 //        }else{
@@ -115,16 +170,15 @@ int main(void) {
 //            lcd_printStr("Unbent");
 //        }
         
-        sprintf(adStr, "%6.4ld",avgMiddle);
-        lcd_printStr(adStr);
-        if (avgMiddle >= 730) {
-            lcd_setCursor(0,1);
-            lcd_printStr("Bent  ");
-        }else{
-            lcd_setCursor(0,1);
-            lcd_printStr("Unbent");
-        }
-//     
+//        sprintf(adStr, "%6.4ld",avgPinkie);
+//        lcd_printStr(adStr);
+//        if (avgPinkie >= 730) {
+//            lcd_setCursor(0,1);
+//            lcd_printStr("Bent  ");
+//        }else{
+//            lcd_setCursor(0,1);
+//            lcd_printStr("Unbent");
+//        }
         delay_ms(100);
     }
     return 0;

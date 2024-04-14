@@ -4,15 +4,10 @@ Tool Name:
   c:\program files\microchip\xc16\v2.10\bin\bin\..\bin/elf-ld.exe
 
 Command:
-  -TC:\\Users\\sabri\\AppData\\Local\\Temp\\tmp000049d8.00 \
-  -TC:\\Users\\sabri\\AppData\\Local\\Temp\\tmp000049d8.01 \
-  -TC:\\Users\\sabri\\AppData\\Local\\Temp\\tmp000049d8.02 \
-  -TC:\\Users\\sabri\\AppData\\Local\\Temp\\tmp000049d8.03 \
-  -TC:\\Users\\sabri\\AppData\\Local\\Temp\\tmp000049d8.04 \
   -p24FJ64GA002 \
   --mdfp=C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC24F-GA-GB_DFP/1.8.217/xc16 \
   -o \
-  dist/default/debug/Flex_Sensor_Glove.X.debug.elf \
+  dist/default/production/Flex_Sensor_Glove.X.production.elf \
   -Lc:/program files/microchip/xc16/v2.10/bin/bin/.. \
   -LC:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC24F-GA-GB_DFP/1.8.217/xc16/bin/../support/PIC24F/gld \
   -Lc:/program files/microchip/xc16/v2.10/bin/bin/../../lib \
@@ -23,18 +18,16 @@ Command:
   -Lc:/program files/microchip/xc16/v2.10/bin/bin/../../support/dsPIC33C/gld \
   -Lc:/program files/microchip/xc16/v2.10/bin/bin/../../support/dsPIC33E/gld \
   -Lc:/program files/microchip/xc16/v2.10/bin/bin/../../support/dsPIC33F/gld \
-  build/default/debug/lcd.o \
-  build/default/debug/pointer.o \
-  build/default/debug/main.o \
-  build/default/debug/middle.o \
-  build/default/debug/pinkie.o \
-  build/default/debug/thumb.o \
-  build/default/debug/ring.o \
-  build/default/debug/input_read.o \
+  build/default/production/lcd.o \
+  build/default/production/pointer.o \
+  build/default/production/main.o \
+  build/default/production/middle.o \
+  build/default/production/pinkie.o \
+  build/default/production/thumb.o \
+  build/default/production/ring.o \
+  build/default/production/input_read.o \
   --defsym=__MPLAB_BUILD=1 \
-  --defsym=__MPLAB_DEBUG=1 \
-  --defsym=__DEBUG=1 \
-  -Tp24FJ64GA002.gld.05 \
+  -Tp24FJ64GA002.gld.00 \
   --stack=16 \
   --check-sections \
   --data-init \
@@ -46,10 +39,10 @@ Command:
   --stackguard=16 \
   --no-force-link \
   --smart-io \
-  -Map=dist/default/debug/Flex_Sensor_Glove.X.debug.map \
+  -Map=dist/default/production/Flex_Sensor_Glove.X.production.map \
   --report-mem \
   --memorysummary \
-  dist/default/debug/memoryfile.xml \
+  dist/default/production/memoryfile.xml \
   -start-group \
   --library=c99-pic30-elf \
   --library=m-elf \
@@ -89,15 +82,10 @@ section                    address   length (PC units)   length (bytes) (dec)
 
 section                    address      alignment gaps    total length  (dec)
 -------                    -------      --------------    -------------------
-reserve_data_0x800           0x800                0x20            0x20  (32)
-reserve_data_0x820           0x820                 0x2             0x2  (2)
-reserve_data_0x822           0x822                 0x2             0x2  (2)
-reserve_data_0x824           0x824                 0x2             0x2  (2)
-reserve_data_0x826           0x826                0x2a            0x2a  (42)
-.nbss                        0x850                   0            0x3c  (60)
-.bss                         0x88c                   0           0x500  (1280)
+.nbss                        0x800                   0            0x3c  (60)
+.bss                         0x83c                   0           0x500  (1280)
 
-                 Total "data" memory used (bytes):          0x58c  (1420) 17%
+                 Total "data" memory used (bytes):          0x53c  (1340) 16%
 
 
 Dynamic Memory Usage
@@ -105,68 +93,68 @@ Dynamic Memory Usage
 region                     address                      maximum length  (dec)
 ------                     -------                      ---------------------
 heap                             0                                   0  (0)
-stack                        0xd8c                              0x1a74  (6772)
+stack                        0xd3c                              0x1ac4  (6852)
 
-                 Maximum dynamic memory (bytes):         0x1a74  (6772)
+                 Maximum dynamic memory (bytes):         0x1ac4  (6852)
 
 Info: Project is using a large data memory model when small data memory model is sufficient.
 
 
 External Symbols in Data Memory (by address):
 
-                    0x0850                  _F1
-                    0x0852                  _F2
-                    0x0854                  _F3
-                    0x0856                  _F4
-                    0x0858                  _F5
-                    0x085a                  _avgThumb
-                    0x085e                  _avgPoint
-                    0x0862                  _avgMiddle
-                    0x0866                  _avgRing
-                    0x086a                  _avgPinkie
-                    0x086e                  _buffindxPointer
-                    0x0870                  _point_avg
-                    0x0874                  _buffindxMiddle
-                    0x0876                  _middle_avg
-                    0x087a                  _buffindxPinkie
-                    0x087c                  _pinkie_avg
-                    0x0880                  _buffindxThumb
-                    0x0882                  _thumb_avg
-                    0x0886                  _buffindxRing
-                    0x0888                  _ring_avg
-                    0x088c                  _adc_pointerBuffer
-                    0x098c                  _adc_middleBuffer
-                    0x0a8c                  _adc_pinkieBuffer
-                    0x0b8c                  _adc_thumbBuffer
-                    0x0c8c                  _adc_ringBuffer
+                    0x0800                  _F1
+                    0x0802                  _F2
+                    0x0804                  _F3
+                    0x0806                  _F4
+                    0x0808                  _F5
+                    0x080a                  _avgThumb
+                    0x080e                  _avgPoint
+                    0x0812                  _avgMiddle
+                    0x0816                  _avgRing
+                    0x081a                  _avgPinkie
+                    0x081e                  _buffindxPointer
+                    0x0820                  _point_avg
+                    0x0824                  _buffindxMiddle
+                    0x0826                  _middle_avg
+                    0x082a                  _buffindxPinkie
+                    0x082c                  _pinkie_avg
+                    0x0830                  _buffindxThumb
+                    0x0832                  _thumb_avg
+                    0x0836                  _buffindxRing
+                    0x0838                  _ring_avg
+                    0x083c                  _adc_pointerBuffer
+                    0x093c                  _adc_middleBuffer
+                    0x0a3c                  _adc_pinkieBuffer
+                    0x0b3c                  _adc_thumbBuffer
+                    0x0c3c                  _adc_ringBuffer
 
 External Symbols in Data Memory (by name):
 
-                    0x0850                  _F1
-                    0x0852                  _F2
-                    0x0854                  _F3
-                    0x0856                  _F4
-                    0x0858                  _F5
-                    0x098c                  _adc_middleBuffer
-                    0x0a8c                  _adc_pinkieBuffer
-                    0x088c                  _adc_pointerBuffer
-                    0x0c8c                  _adc_ringBuffer
-                    0x0b8c                  _adc_thumbBuffer
-                    0x0862                  _avgMiddle
-                    0x086a                  _avgPinkie
-                    0x085e                  _avgPoint
-                    0x0866                  _avgRing
-                    0x085a                  _avgThumb
-                    0x0874                  _buffindxMiddle
-                    0x087a                  _buffindxPinkie
-                    0x086e                  _buffindxPointer
-                    0x0886                  _buffindxRing
-                    0x0880                  _buffindxThumb
-                    0x0876                  _middle_avg
-                    0x087c                  _pinkie_avg
-                    0x0870                  _point_avg
-                    0x0888                  _ring_avg
-                    0x0882                  _thumb_avg
+                    0x0800                  _F1
+                    0x0802                  _F2
+                    0x0804                  _F3
+                    0x0806                  _F4
+                    0x0808                  _F5
+                    0x093c                  _adc_middleBuffer
+                    0x0a3c                  _adc_pinkieBuffer
+                    0x083c                  _adc_pointerBuffer
+                    0x0c3c                  _adc_ringBuffer
+                    0x0b3c                  _adc_thumbBuffer
+                    0x0812                  _avgMiddle
+                    0x081a                  _avgPinkie
+                    0x080e                  _avgPoint
+                    0x0816                  _avgRing
+                    0x080a                  _avgThumb
+                    0x0824                  _buffindxMiddle
+                    0x082a                  _buffindxPinkie
+                    0x081e                  _buffindxPointer
+                    0x0836                  _buffindxRing
+                    0x0830                  _buffindxThumb
+                    0x0826                  _middle_avg
+                    0x082c                  _pinkie_avg
+                    0x0820                  _point_avg
+                    0x0838                  _ring_avg
+                    0x0832                  _thumb_avg
 
 External Symbols in Program Memory (by address):
 
@@ -253,42 +241,15 @@ CONFIG1          0x00abfe           0x000002
 
 Linker script and memory map
 
-
-reserve_data_0x800
-                    0x0800         0x20
-                    0x0820                  . = 0x20
- *fill*             0x0800         0x2000
-
-reserve_data_0x820
-                    0x0820          0x2
-                    0x0822                  . = 0x2
- *fill*             0x0820          0x200
-
-reserve_data_0x822
-                    0x0822          0x2
-                    0x0824                  . = 0x2
- *fill*             0x0822          0x200
-
-reserve_data_0x824
-                    0x0824          0x2
-                    0x0826                  . = 0x2
- *fill*             0x0824          0x200
-
-reserve_data_0x826
-                    0x0826         0x2a
-                    0x0850                  . = 0x2a
- *fill*             0x0826         0x2a00
-LOAD build/default/debug/lcd.o
-LOAD build/default/debug/pointer.o
-LOAD build/default/debug/main.o
-LOAD build/default/debug/middle.o
-LOAD build/default/debug/pinkie.o
-LOAD build/default/debug/thumb.o
-LOAD build/default/debug/ring.o
-LOAD build/default/debug/input_read.o
+LOAD build/default/production/lcd.o
+LOAD build/default/production/pointer.o
+LOAD build/default/production/main.o
+LOAD build/default/production/middle.o
+LOAD build/default/production/pinkie.o
+LOAD build/default/production/thumb.o
+LOAD build/default/production/ring.o
+LOAD build/default/production/input_read.o
                     0x0001                  __MPLAB_BUILD = 0x1
-                    0x0001                  __MPLAB_DEBUG = 0x1
-                    0x0001                  __DEBUG = 0x1
 LOAD pPIC24Fxxx
 LOAD c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libfx-elf.a
                     0xabfc                  __CONFIG2 = 0xabfc
@@ -319,7 +280,7 @@ LOAD c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libfx-elf.a
  *(.user_init)
  *(.handle)
  *(.isr*)
- .isr.text        0x0002c8         0x4c build/default/debug/main.o
+ .isr.text        0x0002c8         0x4c build/default/production/main.o
                   0x0002c8                  __ADC1Interrupt
  .isr             0x000314          0x4 default_isr
                   0x000314                  __DefaultInterrupt
@@ -346,59 +307,59 @@ __CONFIG1
 
 .debug_info       0x000000       0x280f
  *(.debug_info)
- .debug_info      0x000000        0x635 build/default/debug/lcd.o
- .debug_info      0x000635        0x246 build/default/debug/pointer.o
- .debug_info      0x00087b       0x132a build/default/debug/main.o
- .debug_info      0x001ba5        0x248 build/default/debug/middle.o
- .debug_info      0x001ded        0x248 build/default/debug/pinkie.o
- .debug_info      0x002035        0x244 build/default/debug/thumb.o
- .debug_info      0x002279        0x240 build/default/debug/ring.o
- .debug_info      0x0024b9        0x356 build/default/debug/input_read.o
+ .debug_info      0x000000        0x635 build/default/production/lcd.o
+ .debug_info      0x000635        0x246 build/default/production/pointer.o
+ .debug_info      0x00087b       0x132a build/default/production/main.o
+ .debug_info      0x001ba5        0x248 build/default/production/middle.o
+ .debug_info      0x001ded        0x248 build/default/production/pinkie.o
+ .debug_info      0x002035        0x244 build/default/production/thumb.o
+ .debug_info      0x002279        0x240 build/default/production/ring.o
+ .debug_info      0x0024b9        0x356 build/default/production/input_read.o
  *(.gnu.linkonce.wi.*)
 
 .debug_abbrev     0x000000        0x6aa
  *(.debug_abbrev)
- .debug_abbrev    0x000000         0xde build/default/debug/lcd.o
- .debug_abbrev    0x0000de         0xbd build/default/debug/pointer.o
- .debug_abbrev    0x00019b        0x152 build/default/debug/main.o
- .debug_abbrev    0x0002ed         0xbd build/default/debug/middle.o
- .debug_abbrev    0x0003aa         0xbd build/default/debug/pinkie.o
- .debug_abbrev    0x000467         0xbd build/default/debug/thumb.o
- .debug_abbrev    0x000524         0xbd build/default/debug/ring.o
- .debug_abbrev    0x0005e1         0xc9 build/default/debug/input_read.o
+ .debug_abbrev    0x000000         0xde build/default/production/lcd.o
+ .debug_abbrev    0x0000de         0xbd build/default/production/pointer.o
+ .debug_abbrev    0x00019b        0x152 build/default/production/main.o
+ .debug_abbrev    0x0002ed         0xbd build/default/production/middle.o
+ .debug_abbrev    0x0003aa         0xbd build/default/production/pinkie.o
+ .debug_abbrev    0x000467         0xbd build/default/production/thumb.o
+ .debug_abbrev    0x000524         0xbd build/default/production/ring.o
+ .debug_abbrev    0x0005e1         0xc9 build/default/production/input_read.o
 
 .debug_line       0x000000        0x48c
  *(.debug_line)
- .debug_line      0x000000        0x15c build/default/debug/lcd.o
- .debug_line      0x00015c         0x49 build/default/debug/pointer.o
- .debug_line      0x0001a5        0x15a build/default/debug/main.o
- .debug_line      0x0002ff         0x48 build/default/debug/middle.o
- .debug_line      0x000347         0x48 build/default/debug/pinkie.o
- .debug_line      0x00038f         0x47 build/default/debug/thumb.o
- .debug_line      0x0003d6         0x46 build/default/debug/ring.o
- .debug_line      0x00041c         0x70 build/default/debug/input_read.o
+ .debug_line      0x000000        0x15c build/default/production/lcd.o
+ .debug_line      0x00015c         0x49 build/default/production/pointer.o
+ .debug_line      0x0001a5        0x15a build/default/production/main.o
+ .debug_line      0x0002ff         0x48 build/default/production/middle.o
+ .debug_line      0x000347         0x48 build/default/production/pinkie.o
+ .debug_line      0x00038f         0x47 build/default/production/thumb.o
+ .debug_line      0x0003d6         0x46 build/default/production/ring.o
+ .debug_line      0x00041c         0x70 build/default/production/input_read.o
 
 .debug_frame      0x000000        0x38a
  *(.debug_frame)
- .debug_frame     0x000000         0xb0 build/default/debug/lcd.o
- .debug_frame     0x0000b0         0x62 build/default/debug/pointer.o
- .debug_frame     0x000112         0xa8 build/default/debug/main.o
- .debug_frame     0x0001ba         0x62 build/default/debug/middle.o
- .debug_frame     0x00021c         0x62 build/default/debug/pinkie.o
- .debug_frame     0x00027e         0x62 build/default/debug/thumb.o
- .debug_frame     0x0002e0         0x62 build/default/debug/ring.o
- .debug_frame     0x000342         0x48 build/default/debug/input_read.o
+ .debug_frame     0x000000         0xb0 build/default/production/lcd.o
+ .debug_frame     0x0000b0         0x62 build/default/production/pointer.o
+ .debug_frame     0x000112         0xa8 build/default/production/main.o
+ .debug_frame     0x0001ba         0x62 build/default/production/middle.o
+ .debug_frame     0x00021c         0x62 build/default/production/pinkie.o
+ .debug_frame     0x00027e         0x62 build/default/production/thumb.o
+ .debug_frame     0x0002e0         0x62 build/default/production/ring.o
+ .debug_frame     0x000342         0x48 build/default/production/input_read.o
 
 .debug_str        0x000000        0x1c5
  *(.debug_str)
- .debug_str       0x000000         0x21 build/default/debug/lcd.o
- .debug_str       0x000021         0x2c build/default/debug/pointer.o
- .debug_str       0x00004d         0xaf build/default/debug/main.o
- .debug_str       0x0000fc         0x2b build/default/debug/middle.o
- .debug_str       0x000127         0x2b build/default/debug/pinkie.o
- .debug_str       0x000152         0x28 build/default/debug/thumb.o
- .debug_str       0x00017a         0x25 build/default/debug/ring.o
- .debug_str       0x00019f         0x26 build/default/debug/input_read.o
+ .debug_str       0x000000         0x21 build/default/production/lcd.o
+ .debug_str       0x000021         0x2c build/default/production/pointer.o
+ .debug_str       0x00004d         0xaf build/default/production/main.o
+ .debug_str       0x0000fc         0x2b build/default/production/middle.o
+ .debug_str       0x000127         0x2b build/default/production/pinkie.o
+ .debug_str       0x000152         0x28 build/default/production/thumb.o
+ .debug_str       0x00017a         0x25 build/default/production/ring.o
+ .debug_str       0x00019f         0x26 build/default/production/input_read.o
 
 .debug_loc
  *(.debug_loc)
@@ -410,21 +371,21 @@ __CONFIG1
                   0x000000        0x3b9
  *(.debug_pubnames)
  .debug_pubnames
-                  0x000000         0x6d build/default/debug/lcd.o
+                  0x000000         0x6d build/default/production/lcd.o
  .debug_pubnames
-                  0x00006d         0x7e build/default/debug/pointer.o
+                  0x00006d         0x7e build/default/production/pointer.o
  .debug_pubnames
-                  0x0000eb         0x4a build/default/debug/main.o
+                  0x0000eb         0x4a build/default/production/main.o
  .debug_pubnames
-                  0x000135         0x80 build/default/debug/middle.o
+                  0x000135         0x80 build/default/production/middle.o
  .debug_pubnames
-                  0x0001b5         0x80 build/default/debug/pinkie.o
+                  0x0001b5         0x80 build/default/production/pinkie.o
  .debug_pubnames
-                  0x000235         0x7a build/default/debug/thumb.o
+                  0x000235         0x7a build/default/production/thumb.o
  .debug_pubnames
-                  0x0002af         0x74 build/default/debug/ring.o
+                  0x0002af         0x74 build/default/production/ring.o
  .debug_pubnames
-                  0x000323         0x96 build/default/debug/input_read.o
+                  0x000323         0x96 build/default/production/input_read.o
 
 .debug_ranges
  *(.debug_ranges)
@@ -432,21 +393,21 @@ __CONFIG1
 .debug_aranges    0x000000         0xc0
  *(.debug_aranges)
  .debug_aranges
-                  0x000000         0x18 build/default/debug/lcd.o
+                  0x000000         0x18 build/default/production/lcd.o
  .debug_aranges
-                  0x000018         0x18 build/default/debug/pointer.o
+                  0x000018         0x18 build/default/production/pointer.o
  .debug_aranges
-                  0x000030         0x18 build/default/debug/main.o
+                  0x000030         0x18 build/default/production/main.o
  .debug_aranges
-                  0x000048         0x18 build/default/debug/middle.o
+                  0x000048         0x18 build/default/production/middle.o
  .debug_aranges
-                  0x000060         0x18 build/default/debug/pinkie.o
+                  0x000060         0x18 build/default/production/pinkie.o
  .debug_aranges
-                  0x000078         0x18 build/default/debug/thumb.o
+                  0x000078         0x18 build/default/production/thumb.o
  .debug_aranges
-                  0x000090         0x18 build/default/debug/ring.o
+                  0x000090         0x18 build/default/production/ring.o
  .debug_aranges
-                  0x0000a8         0x18 build/default/debug/input_read.o
+                  0x0000a8         0x18 build/default/production/input_read.o
                     0x0000                  WREG0 = 0x0
                     0x0000                  _WREG0 = 0x0
                     0x0002                  WREG1 = 0x2
@@ -1031,136 +992,136 @@ LOAD c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a
 LOAD c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libm-elf.a
 LOAD c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-elf.a
 END GROUP
-OUTPUT(dist/default/debug/Flex_Sensor_Glove.X.debug.elf elf32-pic30)
+OUTPUT(dist/default/production/Flex_Sensor_Glove.X.production.elf elf32-pic30)
 LOAD default_isr
 LOAD data_init
 
 .debug_pubtypes
                   0x0000c0        0x295
  .debug_pubtypes
-                  0x0000c0         0x82 build/default/debug/lcd.o
+                  0x0000c0         0x82 build/default/production/lcd.o
  .debug_pubtypes
-                  0x000142         0x12 build/default/debug/pointer.o
+                  0x000142         0x12 build/default/production/pointer.o
  .debug_pubtypes
-                  0x000154        0x1a7 build/default/debug/main.o
+                  0x000154        0x1a7 build/default/production/main.o
  .debug_pubtypes
-                  0x0002fb         0x12 build/default/debug/middle.o
+                  0x0002fb         0x12 build/default/production/middle.o
  .debug_pubtypes
-                  0x00030d         0x12 build/default/debug/pinkie.o
+                  0x00030d         0x12 build/default/production/pinkie.o
  .debug_pubtypes
-                  0x00031f         0x12 build/default/debug/thumb.o
+                  0x00031f         0x12 build/default/production/thumb.o
  .debug_pubtypes
-                  0x000331         0x12 build/default/debug/ring.o
+                  0x000331         0x12 build/default/production/ring.o
  .debug_pubtypes
-                  0x000343         0x12 build/default/debug/input_read.o
+                  0x000343         0x12 build/default/production/input_read.o
 
 __c30_signature
                   0x000355         0x3c
  __c30_signature
-                  0x000355          0x6 build/default/debug/lcd.o
+                  0x000355          0x6 build/default/production/lcd.o
  __c30_signature
-                  0x00035b          0x6 build/default/debug/pointer.o
+                  0x00035b          0x6 build/default/production/pointer.o
  __c30_signature
-                  0x000361          0x6 build/default/debug/main.o
+                  0x000361          0x6 build/default/production/main.o
  __c30_signature
-                  0x000367          0x6 build/default/debug/middle.o
+                  0x000367          0x6 build/default/production/middle.o
  __c30_signature
-                  0x00036d          0x6 build/default/debug/pinkie.o
+                  0x00036d          0x6 build/default/production/pinkie.o
  __c30_signature
-                  0x000373          0x6 build/default/debug/thumb.o
+                  0x000373          0x6 build/default/production/thumb.o
  __c30_signature
-                  0x000379          0x6 build/default/debug/ring.o
+                  0x000379          0x6 build/default/production/ring.o
  __c30_signature
-                  0x00037f          0x6 build/default/debug/input_read.o
+                  0x00037f          0x6 build/default/production/input_read.o
  __c30_signature
                   0x000385          0x6 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(crt0_standard.o)
  __c30_signature
                   0x00038b          0x6 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(data_init_standard.o)
 
-.nbss               0x0850         0x3c
- .nbss              0x0850         0x1e build/default/debug/input_read.o
-                    0x0850                  _F1
-                    0x0852                  _F2
-                    0x0854                  _F3
-                    0x0856                  _F4
-                    0x0858                  _F5
-                    0x085a                  _avgThumb
-                    0x085e                  _avgPoint
-                    0x0862                  _avgMiddle
-                    0x0866                  _avgRing
-                    0x086a                  _avgPinkie
- .nbss              0x086e          0x6 build/default/debug/pointer.o
-                    0x086e                  _buffindxPointer
-                    0x0870                  _point_avg
- .nbss              0x0874          0x6 build/default/debug/middle.o
-                    0x0874                  _buffindxMiddle
-                    0x0876                  _middle_avg
- .nbss              0x087a          0x6 build/default/debug/pinkie.o
-                    0x087a                  _buffindxPinkie
-                    0x087c                  _pinkie_avg
- .nbss              0x0880          0x6 build/default/debug/thumb.o
-                    0x0880                  _buffindxThumb
-                    0x0882                  _thumb_avg
- .nbss              0x0886          0x6 build/default/debug/ring.o
-                    0x0886                  _buffindxRing
-                    0x0888                  _ring_avg
+.nbss               0x0800         0x3c
+ .nbss              0x0800         0x1e build/default/production/input_read.o
+                    0x0800                  _F1
+                    0x0802                  _F2
+                    0x0804                  _F3
+                    0x0806                  _F4
+                    0x0808                  _F5
+                    0x080a                  _avgThumb
+                    0x080e                  _avgPoint
+                    0x0812                  _avgMiddle
+                    0x0816                  _avgRing
+                    0x081a                  _avgPinkie
+ .nbss              0x081e          0x6 build/default/production/pointer.o
+                    0x081e                  _buffindxPointer
+                    0x0820                  _point_avg
+ .nbss              0x0824          0x6 build/default/production/middle.o
+                    0x0824                  _buffindxMiddle
+                    0x0826                  _middle_avg
+ .nbss              0x082a          0x6 build/default/production/pinkie.o
+                    0x082a                  _buffindxPinkie
+                    0x082c                  _pinkie_avg
+ .nbss              0x0830          0x6 build/default/production/thumb.o
+                    0x0830                  _buffindxThumb
+                    0x0832                  _thumb_avg
+ .nbss              0x0836          0x6 build/default/production/ring.o
+                    0x0836                  _buffindxRing
+                    0x0838                  _ring_avg
 
-.bss                0x088c        0x500
- .bss               0x088c        0x100 build/default/debug/pointer.o
-                    0x088c                  _adc_pointerBuffer
- .bss               0x098c        0x100 build/default/debug/middle.o
-                    0x098c                  _adc_middleBuffer
- .bss               0x0a8c        0x100 build/default/debug/pinkie.o
-                    0x0a8c                  _adc_pinkieBuffer
- .bss               0x0b8c        0x100 build/default/debug/thumb.o
-                    0x0b8c                  _adc_thumbBuffer
- .bss               0x0c8c        0x100 build/default/debug/ring.o
-                    0x0c8c                  _adc_ringBuffer
+.bss                0x083c        0x500
+ .bss               0x083c        0x100 build/default/production/pointer.o
+                    0x083c                  _adc_pointerBuffer
+ .bss               0x093c        0x100 build/default/production/middle.o
+                    0x093c                  _adc_middleBuffer
+ .bss               0x0a3c        0x100 build/default/production/pinkie.o
+                    0x0a3c                  _adc_pinkieBuffer
+ .bss               0x0b3c        0x100 build/default/production/thumb.o
+                    0x0b3c                  _adc_thumbBuffer
+ .bss               0x0c3c        0x100 build/default/production/ring.o
+                    0x0c3c                  _adc_ringBuffer
 
 .config_JTAGEN    0x00abfe          0x2
  .config_JTAGEN
-                  0x00abfe          0x2 build/default/debug/main.o
+                  0x00abfe          0x2 build/default/production/main.o
 
 .config_IESO      0x00abfc          0x2
- .config_IESO     0x00abfc          0x2 build/default/debug/main.o
+ .config_IESO     0x00abfc          0x2 build/default/production/main.o
 
 .ivt._ADC1Interrupt
                   0x00002e          0x2
  .ivt._ADC1Interrupt
-                  0x00002e          0x2 build/default/debug/main.o
+                  0x00002e          0x2 build/default/production/main.o
 
 .text             0x00031a        0x75a
- .text            0x00031a        0x20c build/default/debug/input_read.o
+ .text            0x00031a        0x20c build/default/production/input_read.o
                   0x00031a                  _readFingerRAW
                   0x0003b6                  _readChar
- .text            0x000526        0x1b8 build/default/debug/lcd.o
+ .text            0x000526        0x1b8 build/default/production/lcd.o
                   0x000526                  _delay_ms
                   0x000546                  _lcd_cmd
                   0x000598                  _lcd_init
                   0x0005d8                  _lcd_setCursor
                   0x0005f2                  _lcd_printStr
                   0x00068a                  _lcd_printChar
- .text            0x0006de         0xb2 build/default/debug/main.o
+ .text            0x0006de         0xb2 build/default/production/main.o
                   0x0006de                  _pic24_init
                   0x0006f0                  _adc_init
                   0x00076a                  _main
- .text            0x000790         0x94 build/default/debug/pointer.o
+ .text            0x000790         0x94 build/default/production/pointer.o
                   0x000790                  _initPointBuffer
                   0x0007b2                  _putPointVal
                   0x0007d2                  _getPointAvg
- .text            0x000824         0x94 build/default/debug/middle.o
+ .text            0x000824         0x94 build/default/production/middle.o
                   0x000824                  _initMiddleBuffer
                   0x000846                  _putMiddleVal
                   0x000866                  _getMiddleAvg
- .text            0x0008b8         0x94 build/default/debug/pinkie.o
+ .text            0x0008b8         0x94 build/default/production/pinkie.o
                   0x0008b8                  _initPinkieBuffer
                   0x0008da                  _putPinkieVal
                   0x0008fa                  _getPinkieAvg
- .text            0x00094c         0x94 build/default/debug/thumb.o
+ .text            0x00094c         0x94 build/default/production/thumb.o
                   0x00094c                  _initThumbBuffer
                   0x00096e                  _putThumbVal
                   0x00098e                  _getThumbAvg
- .text            0x0009e0         0x94 build/default/debug/ring.o
+ .text            0x0009e0         0x94 build/default/production/ring.o
                   0x0009e0                  _initRingBuffer
                   0x000a02                  _putRingVal
                   0x000a22                  _getRingAvg

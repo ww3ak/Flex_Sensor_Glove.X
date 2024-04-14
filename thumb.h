@@ -14,7 +14,7 @@ extern "C" {
     
 void initThumbBuffer();
 void putThumbVal(int ADCvalue);
-long int getPointAvg();
+long int getThumbAvg();
 
 
 

@@ -1,5 +1,3 @@
-build/default/debug/ring.o: ring.c lcd.h display.h
+build/default/debug/ring.o: ring.c lcd.h
 
 lcd.h:
-
-display.h:

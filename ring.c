@@ -2,7 +2,6 @@
 #include "xc.h"
 #include <stdio.h>    // for sprintf
 #include "lcd.h"
-#include "display.h"
 
 #define BUFSIZE 128
 

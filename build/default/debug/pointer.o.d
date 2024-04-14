@@ -1,5 +1,3 @@
-build/default/debug/pointer.o: pointer.c lcd.h display.h
+build/default/debug/pointer.o: pointer.c lcd.h
 
 lcd.h:
-
-display.h:

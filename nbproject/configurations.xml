@@ -4,13 +4,13 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>display.h</itemPath>
       <itemPath>lcd.h</itemPath>
       <itemPath>pointer.h</itemPath>
       <itemPath>middle.h</itemPath>
       <itemPath>pinkie.h</itemPath>
       <itemPath>thumb.h</itemPath>
       <itemPath>ring.h</itemPath>
+      <itemPath>input_read.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -19,7 +19,6 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>display.c</itemPath>
       <itemPath>lcd.c</itemPath>
       <itemPath>pointer.c</itemPath>
       <itemPath>main.c</itemPath>
@@ -27,6 +26,7 @@
       <itemPath>pinkie.c</itemPath>
       <itemPath>thumb.c</itemPath>
       <itemPath>ring.c</itemPath>
+      <itemPath>input_read.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -322,7 +322,7 @@
         <property key="debugoptions.debug-startup" value="Use system settings"/>
         <property key="debugoptions.reset-behaviour" value="Use system settings"/>
         <property key="debugoptions.simultaneous.debug" value="false"/>
-        <property key="debugoptions.useswbreakpoints" value="false"/>
+        <property key="debugoptions.useswbreakpoints" value="true"/>
         <property key="event.recorder.enabled" value="false"/>
         <property key="event.recorder.scvd.files" value=""/>
         <property key="freeze.timers" value="false"/>
@@ -340,8 +340,6 @@
                   value="${memories.instruction.ram.ranges}"/>
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0-abfb"/>
-        <property key="programmerToGoFilePath"
-                  value="C:/Users/sabri/UMN/2361/Flex_Sensor_Glove.X/debug/default/Flex_Sensor_Glove_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.pgmentry.voltage" value="low"/>

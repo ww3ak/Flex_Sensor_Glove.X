@@ -102,3 +102,21 @@ void lcd_printStr(const char s[]) {
     I2C2CONbits.PEN=1; //start sending stop bit
     while(I2C2CONbits.PEN==1); //wait for stop bit to finish sending
 }
+
+void lcd_printChar(char myChar) {
+    IFS3bits.MI2C2IF = 0;
+    I2C2CONbits.SEN = 1;
+        while(I2C2CONbits.SEN);
+    IFS3bits.MI2C2IF = 0;
+    I2C2TRN= 0b01111100;
+        while(!IFS3bits.MI2C2IF);
+    IFS3bits.MI2C2IF = 0;
+    I2C2TRN = 0b01000000;           //RS = 1
+        while(!IFS3bits.MI2C2IF);
+    IFS3bits.MI2C2IF = 0;
+    I2C2TRN = myChar;
+        while(!IFS3bits.MI2C2IF);
+    IFS3bits.MI2C2IF = 0;
+    I2C2CONbits.PEN = 1;
+        while(I2C2CONbits.PEN);
+}

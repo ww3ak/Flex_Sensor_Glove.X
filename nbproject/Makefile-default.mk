@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=display.c lcd.c pointer.c main.c middle.c pinkie.c thumb.c ring.c
+SOURCEFILES_QUOTED_IF_SPACED=lcd.c pointer.c main.c middle.c pinkie.c thumb.c ring.c input_read.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/display.o ${OBJECTDIR}/lcd.o ${OBJECTDIR}/pointer.o ${OBJECTDIR}/main.o ${OBJECTDIR}/middle.o ${OBJECTDIR}/pinkie.o ${OBJECTDIR}/thumb.o ${OBJECTDIR}/ring.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/display.o.d ${OBJECTDIR}/lcd.o.d ${OBJECTDIR}/pointer.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/middle.o.d ${OBJECTDIR}/pinkie.o.d ${OBJECTDIR}/thumb.o.d ${OBJECTDIR}/ring.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/lcd.o ${OBJECTDIR}/pointer.o ${OBJECTDIR}/main.o ${OBJECTDIR}/middle.o ${OBJECTDIR}/pinkie.o ${OBJECTDIR}/thumb.o ${OBJECTDIR}/ring.o ${OBJECTDIR}/input_read.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/lcd.o.d ${OBJECTDIR}/pointer.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/middle.o.d ${OBJECTDIR}/pinkie.o.d ${OBJECTDIR}/thumb.o.d ${OBJECTDIR}/ring.o.d ${OBJECTDIR}/input_read.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/display.o ${OBJECTDIR}/lcd.o ${OBJECTDIR}/pointer.o ${OBJECTDIR}/main.o ${OBJECTDIR}/middle.o ${OBJECTDIR}/pinkie.o ${OBJECTDIR}/thumb.o ${OBJECTDIR}/ring.o
+OBJECTFILES=${OBJECTDIR}/lcd.o ${OBJECTDIR}/pointer.o ${OBJECTDIR}/main.o ${OBJECTDIR}/middle.o ${OBJECTDIR}/pinkie.o ${OBJECTDIR}/thumb.o ${OBJECTDIR}/ring.o ${OBJECTDIR}/input_read.o
 
 # Source Files
-SOURCEFILES=display.c lcd.c pointer.c main.c middle.c pinkie.c thumb.c ring.c
+SOURCEFILES=lcd.c pointer.c main.c middle.c pinkie.c thumb.c ring.c input_read.c
 
 
 
@@ -89,12 +89,6 @@ MP_LINKER_FILE_OPTION=,--script=p24FJ64GA002.gld
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/display.o: display.c  .generated_files/flags/default/e1a921a8c1654a3a6e0a3465217c280560529ecd .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/display.o.d 
-	@${RM} ${OBJECTDIR}/display.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  display.c  -o ${OBJECTDIR}/display.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/display.o.d"      -g -D__DEBUG     -omf=elf -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
-	
 ${OBJECTDIR}/lcd.o: lcd.c  .generated_files/flags/default/5ac088af8227393abaa4d136aef9a71794739c2a .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/lcd.o.d 
@@ -137,13 +131,13 @@ ${OBJECTDIR}/ring.o: ring.c  .generated_files/flags/default/1a63bc37720bb8a31519
 	@${RM} ${OBJECTDIR}/ring.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ring.c  -o ${OBJECTDIR}/ring.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/ring.o.d"      -g -D__DEBUG     -omf=elf -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
-else
-${OBJECTDIR}/display.o: display.c  .generated_files/flags/default/e8789f274a7be8a6ac2120dec58c0b6648947abc .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
+${OBJECTDIR}/input_read.o: input_read.c  .generated_files/flags/default/2ba11f4b260c7318cd564c58a572c03e9c161568 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/display.o.d 
-	@${RM} ${OBJECTDIR}/display.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  display.c  -o ${OBJECTDIR}/display.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/display.o.d"        -g -omf=elf -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	@${RM} ${OBJECTDIR}/input_read.o.d 
+	@${RM} ${OBJECTDIR}/input_read.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  input_read.c  -o ${OBJECTDIR}/input_read.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/input_read.o.d"      -g -D__DEBUG     -omf=elf -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
+else
 ${OBJECTDIR}/lcd.o: lcd.c  .generated_files/flags/default/d8aa187cc173300985acbf30f5baccedc302642a .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/lcd.o.d 
@@ -185,6 +179,12 @@ ${OBJECTDIR}/ring.o: ring.c  .generated_files/flags/default/eec44d143eaddac4336b
 	@${RM} ${OBJECTDIR}/ring.o.d 
 	@${RM} ${OBJECTDIR}/ring.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ring.c  -o ${OBJECTDIR}/ring.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/ring.o.d"        -g -omf=elf -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	
+${OBJECTDIR}/input_read.o: input_read.c  .generated_files/flags/default/b642744fd08bf22d6c29667d93e813f4f1ea3d11 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/input_read.o.d 
+	@${RM} ${OBJECTDIR}/input_read.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  input_read.c  -o ${OBJECTDIR}/input_read.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/input_read.o.d"        -g -omf=elf -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
 endif
 

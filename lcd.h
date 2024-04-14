@@ -17,7 +17,7 @@ void lcd_cmd(char Package);
 void lcd_init();
 void lcd_setCursor(char x, char y);
 void lcd_printStr(const char s[]);
-
+void lcd_printChar(char myChar);
 
 
 #ifdef	__cplusplus
