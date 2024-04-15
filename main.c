@@ -35,18 +35,18 @@ void pic24_init() {
 
 void adc_init() {
    TRISAbits.TRISA0=1; //Pin A0 is an input pin THUMB
-   TRISAbits.TRISA1=1; //Pin A1 is an input pin POINTER
-   TRISBbits.TRISB9=1; //A9 MIDDLE
-   TRISBbits.TRISB10=1; //A10 RING
-   TRISBbits.TRISB11=1; //A11 PINKIE
+   TRISBbits.TRISB9=1; //Pin A1 is an input pin POINTER
+   TRISBbits.TRISB10=1; //A9 MIDDLE
+   TRISBbits.TRISB11=1; //A10 RING
+   TRISBbits.TRISB12=1; //A11 PINKIE
 
           
            
    AD1PCFGbits.PCFG0=0; //read the input as analog input
-   AD1PCFGbits.PCFG1=0; //read the input as analog input
    AD1PCFGbits.PCFG9=0; //read the input as analog input
    AD1PCFGbits.PCFG10=0; //read the input as analog input
    AD1PCFGbits.PCFG11=0; //read the input as analog input
+   AD1PCFGbits.PCFG12=0; //read the input as analog input
 
 
    AD1CON2bits.VCFG=0b000; //use 3.3V and 0V as power and ground
@@ -122,57 +122,17 @@ int main(void) {
         while(1) {
         lcd_setCursor(0,0);
         char myChar = readChar();
-        
+        lcd_printChar(myChar);
 //        long int avgThumb = getThumbAvg();
 //        long int avgPoint = getPointAvg();
 //        long int avgMiddle = getMiddleAvg();
 //        long int avgRing = getRingAvg();
 //        long int avgPinkie = getPinkieAvg();
-    
 //        sprintf(adStr, "6.4ld", myChar);
-        lcd_printChar(myChar);
+        
 //    	sprintf(adStr, "%6.4ld",avgThumb);
 //        lcd_printStr(adStr);
 //        if (avgThumb >= 700) {
-//            lcd_setCursor(0,1);
-//            lcd_printStr("Bent  ");
-//        }else{
-//            lcd_setCursor(0,1);
-//            lcd_printStr("Unbent");
-//        }
-//    	sprintf(adStr, "%6.4ld",avgPoint);
-//        lcd_printStr(adStr);
-//        if (avgPoint >= 700) {
-//            lcd_setCursor(0,1);
-//            lcd_printStr("Bent  ");
-//        }else{
-//            lcd_setCursor(0,1);
-//            lcd_printStr("Unbent");
-//        }
-//        
-//        sprintf(adStr, "%6.4ld",avgMiddle);
-//        lcd_printStr(adStr);
-//        if (avgMiddle >= 730) {
-//            lcd_setCursor(0,1);
-//            lcd_printStr("Bent  ");
-//        }else{
-//            lcd_setCursor(0,1);
-//            lcd_printStr("Unbent");
-//        }
-     
-//        sprintf(adStr, "%6.4ld",avgRing);
-//        lcd_printStr(adStr);
-//        if (avgRing >= 730) {
-//            lcd_setCursor(0,1);
-//            lcd_printStr("Bent  ");
-//        }else{
-//            lcd_setCursor(0,1);
-//            lcd_printStr("Unbent");
-//        }
-        
-//        sprintf(adStr, "%6.4ld",avgPinkie);
-//        lcd_printStr(adStr);
-//        if (avgPinkie >= 730) {
 //            lcd_setCursor(0,1);
 //            lcd_printStr("Bent  ");
 //        }else{

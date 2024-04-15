@@ -3,11 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/sabri/UMN/2361/Flex_Sensor_Glove.X/lcd.h</file>
-            <file>file:/C:/Users/sabri/UMN/2361/Flex_Sensor_Glove.X/main.c</file>
+            <file>file:/C:/Users/sabri/UMN/2361/Flex_Sensor_Glove.X/pointer.c</file>
+            <file>file:/C:/Users/sabri/UMN/2361/Flex_Sensor_Glove.X/middle.c</file>
             <file>file:/C:/Users/sabri/UMN/2361/Flex_Sensor_Glove.X/lcd.c</file>
+            <file>file:/C:/Users/sabri/UMN/2361/Flex_Sensor_Glove.X/main.c</file>
+            <file>file:/C:/Users/sabri/UMN/2361/Flex_Sensor_Glove.X/ring.c</file>
             <file>file:/C:/Users/sabri/UMN/2361/Flex_Sensor_Glove.X/input_read.c</file>
             <file>file:/C:/Users/sabri/UMN/2361/Flex_Sensor_Glove.X/thumb.c</file>
+            <file>file:/C:/Users/sabri/UMN/2361/Flex_Sensor_Glove.X/pinkie.c</file>
         </group>
     </open-files>
 </project-private>
