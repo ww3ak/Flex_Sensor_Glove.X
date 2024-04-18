@@ -4,11 +4,11 @@ Tool Name:
   c:\program files\microchip\xc16\v2.10\bin\bin\..\bin/elf-ld.exe
 
 Command:
-  -TC:\\Users\\sabri\\AppData\\Local\\Temp\\tmp000049d8.00 \
-  -TC:\\Users\\sabri\\AppData\\Local\\Temp\\tmp000049d8.01 \
-  -TC:\\Users\\sabri\\AppData\\Local\\Temp\\tmp000049d8.02 \
-  -TC:\\Users\\sabri\\AppData\\Local\\Temp\\tmp000049d8.03 \
-  -TC:\\Users\\sabri\\AppData\\Local\\Temp\\tmp000049d8.04 \
+  -TC:\\Users\\sabri\\AppData\\Local\\Temp\\tmp0000af68.00 \
+  -TC:\\Users\\sabri\\AppData\\Local\\Temp\\tmp0000af68.01 \
+  -TC:\\Users\\sabri\\AppData\\Local\\Temp\\tmp0000af68.02 \
+  -TC:\\Users\\sabri\\AppData\\Local\\Temp\\tmp0000af68.03 \
+  -TC:\\Users\\sabri\\AppData\\Local\\Temp\\tmp0000af68.04 \
   -p24FJ64GA002 \
   --mdfp=C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC24F-GA-GB_DFP/1.8.217/xc16 \
   -o \
@@ -79,10 +79,10 @@ Default Scalar Model: Small
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200               0x11a           0x1a7  (423)
-.text                        0x31a               0x75a           0xb07  (2823)
-.dinit                       0xa74                0x44            0x66  (102)
+.text                        0x31a               0x75c           0xb0a  (2826)
+.dinit                       0xa76                0x44            0x66  (102)
 
-                 Total "program" memory used (bytes):          0xd14  (3348) 5%
+                 Total "program" memory used (bytes):          0xd17  (3351) 5%
 
 
 "data" Memory  [Origin = 0x800, Length = 0x2000]
@@ -178,30 +178,30 @@ External Symbols in Program Memory (by address):
                   0x000314                  __DefaultInterrupt
                   0x00031a                  _readFingerRAW
                   0x0003b6                  _readChar
-                  0x000526                  _delay_ms
-                  0x000546                  _lcd_cmd
-                  0x000598                  _lcd_init
-                  0x0005d8                  _lcd_setCursor
-                  0x0005f2                  _lcd_printStr
-                  0x00068a                  _lcd_printChar
-                  0x0006de                  _pic24_init
-                  0x0006f0                  _adc_init
-                  0x00076a                  _main
-                  0x000790                  _initPointBuffer
-                  0x0007b2                  _putPointVal
-                  0x0007d2                  _getPointAvg
-                  0x000824                  _initMiddleBuffer
-                  0x000846                  _putMiddleVal
-                  0x000866                  _getMiddleAvg
-                  0x0008b8                  _initPinkieBuffer
-                  0x0008da                  _putPinkieVal
-                  0x0008fa                  _getPinkieAvg
-                  0x00094c                  _initThumbBuffer
-                  0x00096e                  _putThumbVal
-                  0x00098e                  _getThumbAvg
-                  0x0009e0                  _initRingBuffer
-                  0x000a02                  _putRingVal
-                  0x000a22                  _getRingAvg
+                  0x00052a                  _delay_ms
+                  0x00054a                  _lcd_cmd
+                  0x00059c                  _lcd_init
+                  0x0005dc                  _lcd_setCursor
+                  0x0005f6                  _lcd_printStr
+                  0x00068e                  _lcd_printChar
+                  0x0006e2                  _pic24_init
+                  0x0006f4                  _adc_init
+                  0x00076c                  _main
+                  0x000792                  _initPointBuffer
+                  0x0007b4                  _putPointVal
+                  0x0007d4                  _getPointAvg
+                  0x000826                  _initMiddleBuffer
+                  0x000848                  _putMiddleVal
+                  0x000868                  _getMiddleAvg
+                  0x0008ba                  _initPinkieBuffer
+                  0x0008dc                  _putPinkieVal
+                  0x0008fc                  _getPinkieAvg
+                  0x00094e                  _initThumbBuffer
+                  0x000970                  _putThumbVal
+                  0x000990                  _getThumbAvg
+                  0x0009e2                  _initRingBuffer
+                  0x000a04                  _putRingVal
+                  0x000a24                  _getRingAvg
 
 External Symbols in Program Memory (by name):
 
@@ -211,30 +211,30 @@ External Symbols in Program Memory (by name):
                   0x000252                  __data_init_standard
                   0x00023c                  __psv_init
                   0x000200                  __resetPRI
-                  0x0006f0                  _adc_init
-                  0x000526                  _delay_ms
-                  0x000866                  _getMiddleAvg
-                  0x0008fa                  _getPinkieAvg
-                  0x0007d2                  _getPointAvg
-                  0x000a22                  _getRingAvg
-                  0x00098e                  _getThumbAvg
-                  0x000824                  _initMiddleBuffer
-                  0x0008b8                  _initPinkieBuffer
-                  0x000790                  _initPointBuffer
-                  0x0009e0                  _initRingBuffer
-                  0x00094c                  _initThumbBuffer
-                  0x000546                  _lcd_cmd
-                  0x000598                  _lcd_init
-                  0x00068a                  _lcd_printChar
-                  0x0005f2                  _lcd_printStr
-                  0x0005d8                  _lcd_setCursor
-                  0x00076a                  _main
-                  0x0006de                  _pic24_init
-                  0x000846                  _putMiddleVal
-                  0x0008da                  _putPinkieVal
-                  0x0007b2                  _putPointVal
-                  0x000a02                  _putRingVal
-                  0x00096e                  _putThumbVal
+                  0x0006f4                  _adc_init
+                  0x00052a                  _delay_ms
+                  0x000868                  _getMiddleAvg
+                  0x0008fc                  _getPinkieAvg
+                  0x0007d4                  _getPointAvg
+                  0x000a24                  _getRingAvg
+                  0x000990                  _getThumbAvg
+                  0x000826                  _initMiddleBuffer
+                  0x0008ba                  _initPinkieBuffer
+                  0x000792                  _initPointBuffer
+                  0x0009e2                  _initRingBuffer
+                  0x00094e                  _initThumbBuffer
+                  0x00054a                  _lcd_cmd
+                  0x00059c                  _lcd_init
+                  0x00068e                  _lcd_printChar
+                  0x0005f6                  _lcd_printStr
+                  0x0005dc                  _lcd_setCursor
+                  0x00076c                  _main
+                  0x0006e2                  _pic24_init
+                  0x000848                  _putMiddleVal
+                  0x0008dc                  _putPinkieVal
+                  0x0007b4                  _putPointVal
+                  0x000a04                  _putRingVal
+                  0x000970                  _putThumbVal
                   0x0003b6                  _readChar
                   0x00031a                  _readFingerRAW
 
@@ -344,39 +344,39 @@ __CONFIG1
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x280f
+.debug_info       0x000000       0x280a
  *(.debug_info)
  .debug_info      0x000000        0x635 build/default/debug/lcd.o
  .debug_info      0x000635        0x246 build/default/debug/pointer.o
- .debug_info      0x00087b       0x132a build/default/debug/main.o
- .debug_info      0x001ba5        0x248 build/default/debug/middle.o
- .debug_info      0x001ded        0x248 build/default/debug/pinkie.o
- .debug_info      0x002035        0x244 build/default/debug/thumb.o
- .debug_info      0x002279        0x240 build/default/debug/ring.o
- .debug_info      0x0024b9        0x356 build/default/debug/input_read.o
+ .debug_info      0x00087b       0x1325 build/default/debug/main.o
+ .debug_info      0x001ba0        0x248 build/default/debug/middle.o
+ .debug_info      0x001de8        0x248 build/default/debug/pinkie.o
+ .debug_info      0x002030        0x244 build/default/debug/thumb.o
+ .debug_info      0x002274        0x240 build/default/debug/ring.o
+ .debug_info      0x0024b4        0x356 build/default/debug/input_read.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000        0x6aa
+.debug_abbrev     0x000000        0x6a1
  *(.debug_abbrev)
  .debug_abbrev    0x000000         0xde build/default/debug/lcd.o
  .debug_abbrev    0x0000de         0xbd build/default/debug/pointer.o
- .debug_abbrev    0x00019b        0x152 build/default/debug/main.o
- .debug_abbrev    0x0002ed         0xbd build/default/debug/middle.o
- .debug_abbrev    0x0003aa         0xbd build/default/debug/pinkie.o
- .debug_abbrev    0x000467         0xbd build/default/debug/thumb.o
- .debug_abbrev    0x000524         0xbd build/default/debug/ring.o
- .debug_abbrev    0x0005e1         0xc9 build/default/debug/input_read.o
+ .debug_abbrev    0x00019b        0x149 build/default/debug/main.o
+ .debug_abbrev    0x0002e4         0xbd build/default/debug/middle.o
+ .debug_abbrev    0x0003a1         0xbd build/default/debug/pinkie.o
+ .debug_abbrev    0x00045e         0xbd build/default/debug/thumb.o
+ .debug_abbrev    0x00051b         0xbd build/default/debug/ring.o
+ .debug_abbrev    0x0005d8         0xc9 build/default/debug/input_read.o
 
-.debug_line       0x000000        0x48c
+.debug_line       0x000000        0x48b
  *(.debug_line)
  .debug_line      0x000000        0x15c build/default/debug/lcd.o
  .debug_line      0x00015c         0x49 build/default/debug/pointer.o
- .debug_line      0x0001a5        0x15a build/default/debug/main.o
- .debug_line      0x0002ff         0x48 build/default/debug/middle.o
- .debug_line      0x000347         0x48 build/default/debug/pinkie.o
- .debug_line      0x00038f         0x47 build/default/debug/thumb.o
- .debug_line      0x0003d6         0x46 build/default/debug/ring.o
- .debug_line      0x00041c         0x70 build/default/debug/input_read.o
+ .debug_line      0x0001a5        0x158 build/default/debug/main.o
+ .debug_line      0x0002fd         0x48 build/default/debug/middle.o
+ .debug_line      0x000345         0x48 build/default/debug/pinkie.o
+ .debug_line      0x00038d         0x47 build/default/debug/thumb.o
+ .debug_line      0x0003d4         0x46 build/default/debug/ring.o
+ .debug_line      0x00041a         0x71 build/default/debug/input_read.o
 
 .debug_frame      0x000000        0x38a
  *(.debug_frame)
@@ -1129,41 +1129,41 @@ __c30_signature
  .ivt._ADC1Interrupt
                   0x00002e          0x2 build/default/debug/main.o
 
-.text             0x00031a        0x75a
- .text            0x00031a        0x20c build/default/debug/input_read.o
+.text             0x00031a        0x75c
+ .text            0x00031a        0x210 build/default/debug/input_read.o
                   0x00031a                  _readFingerRAW
                   0x0003b6                  _readChar
- .text            0x000526        0x1b8 build/default/debug/lcd.o
-                  0x000526                  _delay_ms
-                  0x000546                  _lcd_cmd
-                  0x000598                  _lcd_init
-                  0x0005d8                  _lcd_setCursor
-                  0x0005f2                  _lcd_printStr
-                  0x00068a                  _lcd_printChar
- .text            0x0006de         0xb2 build/default/debug/main.o
-                  0x0006de                  _pic24_init
-                  0x0006f0                  _adc_init
-                  0x00076a                  _main
- .text            0x000790         0x94 build/default/debug/pointer.o
-                  0x000790                  _initPointBuffer
-                  0x0007b2                  _putPointVal
-                  0x0007d2                  _getPointAvg
- .text            0x000824         0x94 build/default/debug/middle.o
-                  0x000824                  _initMiddleBuffer
-                  0x000846                  _putMiddleVal
-                  0x000866                  _getMiddleAvg
- .text            0x0008b8         0x94 build/default/debug/pinkie.o
-                  0x0008b8                  _initPinkieBuffer
-                  0x0008da                  _putPinkieVal
-                  0x0008fa                  _getPinkieAvg
- .text            0x00094c         0x94 build/default/debug/thumb.o
-                  0x00094c                  _initThumbBuffer
-                  0x00096e                  _putThumbVal
-                  0x00098e                  _getThumbAvg
- .text            0x0009e0         0x94 build/default/debug/ring.o
-                  0x0009e0                  _initRingBuffer
-                  0x000a02                  _putRingVal
-                  0x000a22                  _getRingAvg
+ .text            0x00052a        0x1b8 build/default/debug/lcd.o
+                  0x00052a                  _delay_ms
+                  0x00054a                  _lcd_cmd
+                  0x00059c                  _lcd_init
+                  0x0005dc                  _lcd_setCursor
+                  0x0005f6                  _lcd_printStr
+                  0x00068e                  _lcd_printChar
+ .text            0x0006e2         0xb0 build/default/debug/main.o
+                  0x0006e2                  _pic24_init
+                  0x0006f4                  _adc_init
+                  0x00076c                  _main
+ .text            0x000792         0x94 build/default/debug/pointer.o
+                  0x000792                  _initPointBuffer
+                  0x0007b4                  _putPointVal
+                  0x0007d4                  _getPointAvg
+ .text            0x000826         0x94 build/default/debug/middle.o
+                  0x000826                  _initMiddleBuffer
+                  0x000848                  _putMiddleVal
+                  0x000868                  _getMiddleAvg
+ .text            0x0008ba         0x94 build/default/debug/pinkie.o
+                  0x0008ba                  _initPinkieBuffer
+                  0x0008dc                  _putPinkieVal
+                  0x0008fc                  _getPinkieAvg
+ .text            0x00094e         0x94 build/default/debug/thumb.o
+                  0x00094e                  _initThumbBuffer
+                  0x000970                  _putThumbVal
+                  0x000990                  _getThumbAvg
+ .text            0x0009e2         0x94 build/default/debug/ring.o
+                  0x0009e2                  _initRingBuffer
+                  0x000a04                  _putRingVal
+                  0x000a24                  _getRingAvg
 
-.dinit            0x000a74         0x44
- .dinit           0x000a74         0x44 data_init
+.dinit            0x000a76         0x44
+ .dinit           0x000a76         0x44 data_init

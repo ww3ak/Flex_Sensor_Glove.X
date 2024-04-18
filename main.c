@@ -1,7 +1,5 @@
 #include "xc.h"
 #include <stdio.h>
-// for sprintf
-
 #include "lcd.h"
 #include "thumb.h"
 #include "pointer.h"
@@ -9,7 +7,6 @@
 #include "ring.h"
 #include "pinkie.h"
 #include "input_read.h"
-
 #define NUMSAMPLES 256
 
 // PIC24FJ64GA002 Configuration Bit Settings
@@ -27,6 +24,13 @@
                                        // Fail-Safe Clock Monitor is enabled)
 #pragma config FNOSC = FRCPLL      // Oscillator Select (Fast RC Oscillator with PLL module (FRCPLL))
 
+/*
+ This file acts as the main file for this project. It initializes all necessary peripherals like the
+ * pic24 micro itself, the ADC portion of the pic, as well as the LCD screen. 
+ * After its init funcions, it calls each sensor buffer init function as well and runs a while loop
+ * which continuously updates the hand character which is displayed on the display. 
+ */
+
 
 void pic24_init() {
     _RCDIV=0; //set internal clock to 16MHz
@@ -34,20 +38,19 @@ void pic24_init() {
 }
 
 void adc_init() {
-   TRISAbits.TRISA0=1; //Pin A0 is an input pin THUMB
-   TRISBbits.TRISB9=1; //Pin A1 is an input pin POINTER
-   TRISBbits.TRISB10=1; //A9 MIDDLE
-   TRISBbits.TRISB11=1; //A10 RING
-   TRISBbits.TRISB12=1; //A11 PINKIE
+   TRISAbits.TRISA0=1; //A0 THUMB
+   TRISBbits.TRISB9=1; //A9 POINTER
+   TRISBbits.TRISB10=1; //A10 MIDDLE
+   TRISBbits.TRISB11=1; //A11 RING
+   TRISBbits.TRISB12=1; //A12 PINKIE
 
           
-           
-   AD1PCFGbits.PCFG0=0; //read the input as analog input
-   AD1PCFGbits.PCFG9=0; //read the input as analog input
-   AD1PCFGbits.PCFG10=0; //read the input as analog input
-   AD1PCFGbits.PCFG11=0; //read the input as analog input
-   AD1PCFGbits.PCFG12=0; //read the input as analog input
-
+//read the input as analog input for each pin 
+   AD1PCFGbits.PCFG0=0; 
+   AD1PCFGbits.PCFG9=0; 
+   AD1PCFGbits.PCFG10=0; 
+   AD1PCFGbits.PCFG11=0; 
+   AD1PCFGbits.PCFG12=0; 
 
    AD1CON2bits.VCFG=0b000; //use 3.3V and 0V as power and ground
    AD1CON3bits.ADCS= 0b00000001; //TAD=Tcy*2, (Tcy = 62.5 ns), TAD>=75ns
@@ -55,49 +58,44 @@ void adc_init() {
    AD1CON3bits.SAMC= 0b00001; //you want at least 1 auto sample time bit, this is 1 TAD
    AD1CON1bits.FORM= 0b00; //data output form, of form unsigned int
                           //unsigned: 0V=0b0000000000, 3.3V=0b1111111111
-   AD1CON1bits.ASAM= 1; //begin sampling immediately after last conversion
+   AD1CON1bits.ASAM= 1; //begin sampling immediately after last conversion, samp bit set automatically 
    AD1CON2bits.SMPI= 0b0101; //interrupts after THE 5TH SAMPLING
     
-
     AD1CHS = 0x0000; // Initial channel selected to AN0
     
     
     AD1CON1bits.ADON=1; //turn on the ADC
     AD1CON2bits.ALTS = 0; //ALWAYS USES MUX A
-    AD1CON2bits.CSCNA = 1;    // USES CSSL CHANNELS FOR MUX A
+    AD1CON2bits.CSCNA = 1;// USES CSSL CHANNELS FOR MUX A
 
-    AD1CHSbits.CH0NA = 0;
+    AD1CHSbits.CH0NA = 0;//Channel 0 negative input is AN1
    
-    
     AD1CSSLbits.CSSL0 = 1;    // scan for A0
-    AD1CSSLbits.CSSL1 = 1;   // scan for A1
-    AD1CSSLbits.CSSL9 = 1;   //scan for A9
+    AD1CSSLbits.CSSL9 = 1;   // scan for A9
     AD1CSSLbits.CSSL10 = 1;   //scan for A10
     AD1CSSLbits.CSSL11 = 1;   //scan for A11
-
-
-    
-    //look at 17-8 example 
-
-
+    AD1CSSLbits.CSSL12 = 1;   //scan for A12
    
    _AD1IF=0; //clear interrupt flags
    _AD1IE=1; //enable interrupts
    
    TMR3=0; //start counting from 0
    T3CON=0; //clear TMR3 register
-   T3CONbits.TCKPS=0b10; //1:64 prescalar
+   T3CONbits.TCKPS=0b1000; //1:8 pre-scalar
    PR3=250000/NUMSAMPLES-1;
    T3CONbits.TON=1; //enable timer 3
 }
 void __attribute__((interrupt,auto_psv)) _ADC1Interrupt(void) {
     _AD1IF=0; //clear interrupt flags
+    
+    //store buffer register values in variables 
     int adThumbValue = ADC1BUF0;
     int adPointerValue = ADC1BUF1;
     int adMiddleValue = ADC1BUF2;
     int adRingValue = ADC1BUF3;
     int adPinkieValue = ADC1BUF4;
 
+    //place the stored values into sensor buffers 
     putThumbVal(adThumbValue);
     putPointVal(adPointerValue);
     putMiddleVal(adMiddleValue);
@@ -110,6 +108,7 @@ int main(void) {
     pic24_init();
     lcd_init();
    
+    //initialize individual buffer sensors 
     initThumbBuffer();
     initPointBuffer();
     initMiddleBuffer();
@@ -117,22 +116,23 @@ int main(void) {
     initPinkieBuffer();
     
     adc_init();
+    char myChar;
     
-    char adStr[20];
+    char adStrPoint[20];
+
         while(1) {
         lcd_setCursor(0,0);
-        char myChar = readChar();
+        myChar = readChar();
         lcd_printChar(myChar);
-//        long int avgThumb = getThumbAvg();
 //        long int avgPoint = getPointAvg();
-//        long int avgMiddle = getMiddleAvg();
-//        long int avgRing = getRingAvg();
-//        long int avgPinkie = getPinkieAvg();
-//        sprintf(adStr, "6.4ld", myChar);
-        
-//    	sprintf(adStr, "%6.4ld",avgThumb);
+//
+//        sprintf(adStrPoint, "%6.4ld",avgPoint);
+//        lcd_printStr(adStrPoint);
+//        lcd_setCursor(0,1);
+//        lcd_printStr(adStrPoint);
+
 //        lcd_printStr(adStr);
-//        if (avgThumb >= 700) {
+//        if (avgPoint >= 700) {
 //            lcd_setCursor(0,1);
 //            lcd_printStr("Bent  ");
 //        }else{
@@ -141,6 +141,7 @@ int main(void) {
 //        }
         delay_ms(100);
     }
+        
     return 0;
     
 }

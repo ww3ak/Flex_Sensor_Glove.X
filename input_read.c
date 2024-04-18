@@ -1,6 +1,15 @@
 #include <xc.h>
 #include <stdio.h>
 #include <stdlib.h>
+/*
+ * The following file is used to take in raw ADC input values
+ * that are averaged and convert them into digital data using 
+ * 0's and 1's which represent unbent and bent. This data is then 
+ * turned into numbers (represented here as characters for ease
+ * of LCD use) through the use of logic code. The file returns a 
+ * "hand" character which is then displayed on the LCD screen.  
+ */
+
 
 int F1 = 0; //thumb
 int F2 = 0; //pointer
@@ -24,31 +33,31 @@ void readFingerRAW(void) {
     
 
     //Thumb Reading
-    if (avgThumb >= 480) {//FS 27
+    if (avgThumb >= 620) {//FS 53
         F1 = 1;
     } else {
         F1 = 0;
     }
     //Pointer Reading
-    if (avgPoint >= 550) {//FS 53
+    if (avgPoint >= 790) {// FS 42
         F2 = 1;
     } else {
         F2 = 0;
     }
     //Middle Reading
-    if (avgMiddle >= 820) {//FS 42
+    if (avgMiddle >= 550) {
         F3 = 1;
     } else {
         F3 = 0;
     }
     //Ring Reading
-    if (avgRing >= 700) {//FS 33
+    if (avgRing >= 700) {
         F4 = 1;
     } else {
         F4 = 0;
     }
     //Pinky Reading
-    if (avgPinkie >= 750) {//FS 4
+    if (avgPinkie >= 520) {
         F5 = 1;
     } else {
         F5 = 0;
@@ -59,8 +68,8 @@ char readChar() {
     
     readFingerRAW();
     
-    char hand;
-
+    char hand = 'U';
+    
     if (F1 == 1 && F2 == 1 && F3 == 1 && F4 == 1 && F5 == 1) {
         hand = '0';
     } else if (F1 == 1 && F2 == 0 && F3 == 1 && F4 == 1 && F5 == 1) {
@@ -75,9 +84,9 @@ char readChar() {
         hand = '5';
     } else if (F1 == 1 && F2 == 0 && F3 == 0 && F4 == 0 && F5 == 1) {
         hand = '6';
-    } else if (F1 == 0 && F2 == 1 && F3 == 1 && F4 == 0 && F5 == 1) {
+    } else if (F1 == 1 && F2 == 0 && F3 == 0 && F4 == 1 && F5 == 0) {
         hand = '7';
-    } else if (F1 == 0 && F2 == 1 && F3 == 0 && F4 == 1 && F5 == 1) {
+    } else if (F1 == 1 && F2 == 0 && F3 == 1 && F4 == 0 && F5 == 0) {
         hand = '8';
     } else if (F1 == 1 && F2 == 1 && F3 == 0 && F4 == 0 && F5 == 0) {
         hand = '9';

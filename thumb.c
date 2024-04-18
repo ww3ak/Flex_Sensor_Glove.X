@@ -11,11 +11,14 @@ int buffindxThumb=0;
 long int thumb_avg;
 
 
+//init sensor buffer to buffsize
 void initThumbBuffer() {
     for(int i=0; i<BUFSIZE; i++) {
         adc_thumbBuffer[i]=0;
     }
 }
+
+//place ADC value into sensor buffer 
 void putThumbVal(int ADCvalue) {
     adc_thumbBuffer[buffindxThumb++]=ADCvalue;
     if(buffindxThumb>=BUFSIZE) {
@@ -23,6 +26,7 @@ void putThumbVal(int ADCvalue) {
     }
 }
 
+//gets average of values in buffer and returns the value 
 long int getThumbAvg() {
     thumb_avg=0;
     for(int j=0; j<BUFSIZE; j++) {
