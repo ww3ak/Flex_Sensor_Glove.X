@@ -33,31 +33,31 @@ void readFingerRAW(void) {
     
 
     //Thumb Reading
-    if (avgThumb >= 620) {//FS 53
+    if (avgThumb >= 520) {//FS 53
         F1 = 1;
     } else {
         F1 = 0;
     }
     //Pointer Reading
-    if (avgPoint >= 790) {// FS 42
+    if (avgPoint >= 750) {// FS 42
         F2 = 1;
     } else {
         F2 = 0;
     }
     //Middle Reading
-    if (avgMiddle >= 550) {
+    if (avgMiddle >= 790) { //FS 4
         F3 = 1;
     } else {
         F3 = 0;
     }
     //Ring Reading
-    if (avgRing >= 700) {
+    if (avgRing >= 710) { //FS 33
         F4 = 1;
     } else {
         F4 = 0;
     }
     //Pinky Reading
-    if (avgPinkie >= 520) {
+    if (avgPinkie >= 480) { //FS 27
         F5 = 1;
     } else {
         F5 = 0;

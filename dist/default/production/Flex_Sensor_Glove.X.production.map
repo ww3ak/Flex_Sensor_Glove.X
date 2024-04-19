@@ -305,28 +305,28 @@ __CONFIG1
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x280a
+.debug_info       0x000000       0x27e5
  *(.debug_info)
  .debug_info      0x000000        0x635 build/default/production/lcd.o
  .debug_info      0x000635        0x246 build/default/production/pointer.o
- .debug_info      0x00087b       0x1325 build/default/production/main.o
- .debug_info      0x001ba0        0x248 build/default/production/middle.o
- .debug_info      0x001de8        0x248 build/default/production/pinkie.o
- .debug_info      0x002030        0x244 build/default/production/thumb.o
- .debug_info      0x002274        0x240 build/default/production/ring.o
- .debug_info      0x0024b4        0x356 build/default/production/input_read.o
+ .debug_info      0x00087b       0x1300 build/default/production/main.o
+ .debug_info      0x001b7b        0x248 build/default/production/middle.o
+ .debug_info      0x001dc3        0x248 build/default/production/pinkie.o
+ .debug_info      0x00200b        0x244 build/default/production/thumb.o
+ .debug_info      0x00224f        0x240 build/default/production/ring.o
+ .debug_info      0x00248f        0x356 build/default/production/input_read.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000        0x6a1
+.debug_abbrev     0x000000        0x68f
  *(.debug_abbrev)
  .debug_abbrev    0x000000         0xde build/default/production/lcd.o
  .debug_abbrev    0x0000de         0xbd build/default/production/pointer.o
- .debug_abbrev    0x00019b        0x149 build/default/production/main.o
- .debug_abbrev    0x0002e4         0xbd build/default/production/middle.o
- .debug_abbrev    0x0003a1         0xbd build/default/production/pinkie.o
- .debug_abbrev    0x00045e         0xbd build/default/production/thumb.o
- .debug_abbrev    0x00051b         0xbd build/default/production/ring.o
- .debug_abbrev    0x0005d8         0xc9 build/default/production/input_read.o
+ .debug_abbrev    0x00019b        0x137 build/default/production/main.o
+ .debug_abbrev    0x0002d2         0xbd build/default/production/middle.o
+ .debug_abbrev    0x00038f         0xbd build/default/production/pinkie.o
+ .debug_abbrev    0x00044c         0xbd build/default/production/thumb.o
+ .debug_abbrev    0x000509         0xbd build/default/production/ring.o
+ .debug_abbrev    0x0005c6         0xc9 build/default/production/input_read.o
 
 .debug_line       0x000000        0x48b
  *(.debug_line)

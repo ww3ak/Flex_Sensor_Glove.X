@@ -118,18 +118,23 @@ int main(void) {
     adc_init();
     char myChar;
     
-    char adStrPoint[20];
+//    char adStrMiddle[20];
+//    char adStrPinkie[20];
+
 
         while(1) {
         lcd_setCursor(0,0);
         myChar = readChar();
         lcd_printChar(myChar);
-//        long int avgPoint = getPointAvg();
+//        long int avgMiddle = getRingAvg();
+//        long int avgPinkie = getPinkieAvg();
 //
-//        sprintf(adStrPoint, "%6.4ld",avgPoint);
-//        lcd_printStr(adStrPoint);
+//        sprintf(adStrMiddle, "%6.4ld",avgMiddle);
+//        sprintf(adStrPinkie, "%6.4ld",avgPinkie);
+//
+//        lcd_printStr(adStrMiddle);
 //        lcd_setCursor(0,1);
-//        lcd_printStr(adStrPoint);
+//        lcd_printStr(adStrPinkie);
 
 //        lcd_printStr(adStr);
 //        if (avgPoint >= 700) {
